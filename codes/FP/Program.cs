@@ -1,0 +1,3 @@
+﻿using FP;
+
+HOF.CreateFunc();
