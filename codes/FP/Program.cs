@@ -1,3 +1,6 @@
 ﻿using FP;
 
-HOF.CreateFunc();
+// HOF.CreateFunc();
+// ParallelCode.Format();
+// Option.AgeCompare();
+UnitTest.Entry();
