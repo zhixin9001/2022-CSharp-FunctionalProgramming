@@ -1,5 +1,8 @@
 ﻿using FP.ZhiXin.FP;
+using Option;
+
 namespace FP;
+
 using static Console;
 
 public class OptionTest
@@ -11,10 +14,41 @@ public class OptionTest
 
     public static void Entry()
     {
-        Option.
+        // var firstName = (Option<string>) new Some<string>("Enrico");
+        // var middleName = (Option<string>) new None();
+        //
+        // WriteLine(greet(firstName));
+        // WriteLine(greet(middleName));
+
+        // var sub = new Subscriber()
+        // {
+        //     // Name = new Some<string>("ABC")
+        //     Name = new None()
+        // };
+        // WriteLine(GreetingFor(sub));
+
+        WriteLine(ParseInt("10"));
+        WriteLine(ParseInt("ddd"));
+    }
+
+    static string greet(Option<string> greetee)
+        => greetee.Match(None: () => "Sorry, who?",
+            Some: name => $"Hello, {name}");
+
+    static string GreetingFor(Subscriber subscriber)
+        => subscriber.Name.Match(() => "Dear Subscriber", name => $"Dear {name.ToUpper()}");
+
+    static Option<int> ParseInt(string s)
+    {
+        int result;
+        return int.TryParse(s, out result) ? new Some<int>(result) : new None();
     }
 }
 
+public class Subscriber
+{
+    public Option<string> Name { get; set; }
+}
 
 
 public class Age
