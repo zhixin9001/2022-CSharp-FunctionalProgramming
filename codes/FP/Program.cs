@@ -4,4 +4,5 @@
 // ParallelCode.Format();
 // Option.AgeCompare();
 // UnitTest.Entry();
-OptionTest.Entry();
+// OptionTest.Entry();
+PatternTest.Entry();

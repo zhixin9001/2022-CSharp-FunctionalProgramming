@@ -1,6 +1,5 @@
-﻿using FP.ZhiXin.FP;
-using Option;
-
+﻿using LaYumba.Functional;
+using static LaYumba.Functional.F;
 namespace FP;
 
 using static Console;
@@ -9,26 +8,26 @@ public class OptionTest
 {
     public static void AgeCompare()
     {
-        WriteLine(new Age(32) > new Age(33));
+        // WriteLine(Age.Of(32) > Age.Of(33));
     }
 
     public static void Entry()
     {
-        // var firstName = (Option<string>) new Some<string>("Enrico");
-        // var middleName = (Option<string>) new None();
+        var firstName = Some("Enrico");
+        var middleName = None;
         //
         // WriteLine(greet(firstName));
         // WriteLine(greet(middleName));
 
         // var sub = new Subscriber()
         // {
-        //     // Name = new Some<string>("ABC")
-        //     Name = new None()
+        //     Name = Some("ABC")
+        //     // Name = None
         // };
         // WriteLine(GreetingFor(sub));
 
-        WriteLine(ParseInt("10"));
-        WriteLine(ParseInt("ddd"));
+        WriteLine(ParseInt("10").value);
+        WriteLine(ParseInt("ddd").value);
     }
 
     static string greet(Option<string> greetee)
@@ -41,7 +40,7 @@ public class OptionTest
     static Option<int> ParseInt(string s)
     {
         int result;
-        return int.TryParse(s, out result) ? new Some<int>(result) : new None();
+        return int.TryParse(s, out result) ? Some(result) :  None;
     }
 }
 
@@ -53,11 +52,17 @@ public class Subscriber
 
 public class Age
 {
-    public Age(int age)
+    private Age(int age)
     {
         Value = age;
     }
 
+    // public static Option<Age> Of(int age)
+    //     => IsValid(age) ? new Option.Some(new Age(age)) : new Option.None;
+
+
+    private static bool IsValid(int age)
+        => 0 <= age && age < 120;
     private int Value { get; }
 
     public static bool operator <(Age l, Age r)
