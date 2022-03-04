@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using FP.ZhiXin.FP;
+using LaYumba.Functional;
 
 namespace FP;
 using static Console;
@@ -10,7 +11,7 @@ public class UnitTest
     {
         // var a = Time<int>(() => 1);
         // Time(() => WriteLine("aaaa"));
-        var unit=F.Unit();
+        var unit= F.Unit();
         Action action = () => WriteLine("aaaa");
         Time(action.ToFunc());
         

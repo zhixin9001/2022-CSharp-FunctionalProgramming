@@ -1,7 +1,7 @@
-﻿namespace FP.ZhiXin.FP;
+﻿using static LaYumba.Functional.F;
+namespace FP.ZhiXin.FP;
 
 using Unit = System.ValueTuple;
-using static F;
 
 public static class ActionExt
 {

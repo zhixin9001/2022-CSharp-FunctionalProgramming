@@ -1,5 +1,6 @@
 ﻿using LaYumba.Functional;
 using static LaYumba.Functional.F;
+
 namespace FP;
 
 using static Console;
@@ -40,7 +41,7 @@ public class OptionTest
     static Option<int> ParseInt(string s)
     {
         int result;
-        return int.TryParse(s, out result) ? Some(result) :  None;
+        return int.TryParse(s, out result) ? Some(result) : None;
     }
 }
 
@@ -49,7 +50,6 @@ public class Subscriber
     public Option<string> Name { get; set; }
 }
 
-
 public class Age
 {
     private Age(int age)
@@ -57,12 +57,13 @@ public class Age
         Value = age;
     }
 
-    // public static Option<Age> Of(int age)
-    //     => IsValid(age) ? new Option.Some(new Age(age)) : new Option.None;
+    public static Option<Age> Of(int age)
+        => IsValid(age) ? Some(new Age(age)) : None;
 
 
     private static bool IsValid(int age)
         => 0 <= age && age < 120;
+
     private int Value { get; }
 
     public static bool operator <(Age l, Age r)
@@ -76,4 +77,7 @@ public class Age
 
     public static bool operator >(Age l, int r)
         => l > new Age(r);
+
+    public override string ToString() =>
+        $"{Value}";
 }

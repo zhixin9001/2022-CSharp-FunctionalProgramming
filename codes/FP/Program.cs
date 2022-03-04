@@ -5,4 +5,5 @@
 // Option.AgeCompare();
 // UnitTest.Entry();
 // OptionTest.Entry();
-PatternTest.Entry();
+// PatternTest.Entry();
+BindTest.Entry();

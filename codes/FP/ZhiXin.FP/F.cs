@@ -1,4 +1,4 @@
-﻿namespace FP.ZhiXin.FP;
+﻿namespace LaYumba.Functional;
 using Unit = System.ValueTuple;
 
 public static partial class F

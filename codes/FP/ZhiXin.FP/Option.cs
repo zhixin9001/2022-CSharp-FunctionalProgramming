@@ -82,6 +82,14 @@ namespace LaYumba.Functional
                 => optT.Match(
                     () => F.None,
                     t => Some(f(t)));
+            
+            
+            public static Option<R> Bind<T, R>(this Option<T> optT, Func<T, Option<R>> f)
+                => optT.Match(
+                    () => F.None,
+                    t => f(t));
+
+
 
             public static Option<Unit> ForEach<T>(this Option<T> opt, Action<T> action)
                 => Map(opt, action.ToFunc());
