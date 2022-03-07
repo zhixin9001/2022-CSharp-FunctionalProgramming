@@ -1,4 +1,5 @@
 ﻿using FP;
+using FP._2.fp_pattern;
 
 // HOF.CreateFunc();
 // ParallelCode.Format();
@@ -6,4 +7,6 @@
 // UnitTest.Entry();
 // OptionTest.Entry();
 // PatternTest.Entry();
-BindTest.Entry();
+// BindTest.Entry();
+// CompositeTest.Entry();
+EitherTest.Entry();

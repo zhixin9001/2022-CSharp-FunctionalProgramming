@@ -78,17 +78,19 @@ namespace LaYumba.Functional
 
         public static class OptionExt
         {
+            public static Option<R> Map1<T, R>(this Option<T> optT, Func<T, R> f)
+                => optT.Bind(t => Some(f(t)));
+
             public static Option<R> Map<T, R>(this Option<T> optT, Func<T, R> f)
                 => optT.Match(
                     () => F.None,
                     t => Some(f(t)));
-            
-            
+
+
             public static Option<R> Bind<T, R>(this Option<T> optT, Func<T, Option<R>> f)
                 => optT.Match(
                     () => F.None,
                     t => f(t));
-
 
 
             public static Option<Unit> ForEach<T>(this Option<T> opt, Action<T> action)
@@ -97,6 +99,11 @@ namespace LaYumba.Functional
             public static IEnumerable<Unit> ForEach<T>(this IEnumerable<T> ts,
                 Action<T> action)
                 => ts.Map(action.ToFunc()).ToImmutableList();
+
+            public static Option<T> Where<T>(this Option<T> optT, Func<T, bool> pred)
+                => optT.Match(
+                    () => F.None,
+                    t => pred(t) ? optT : F.None);
         }
     }
 }

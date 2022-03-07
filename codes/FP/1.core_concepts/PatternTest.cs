@@ -54,13 +54,4 @@ public static class PatternTest
 
     public static Func<string, Option<Age>> parseAge =
         s => Int.Parse(s).Bind(Age.Of);
-
-    public static IEnumerable<R> Map<T, R>(this IEnumerable<T> ts
-        , Func<T, R> f)
-    {
-        foreach (var t in ts)
-        {
-            yield return f(t);
-        }
-    }
 }

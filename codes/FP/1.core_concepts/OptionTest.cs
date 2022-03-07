@@ -64,7 +64,7 @@ public class Age
     private static bool IsValid(int age)
         => 0 <= age && age < 120;
 
-    private int Value { get; }
+    public int Value { get; }
 
     public static bool operator <(Age l, Age r)
         => l.Value < r.Value;
@@ -80,4 +80,9 @@ public class Age
 
     public override string ToString() =>
         $"{Value}";
+}
+
+public class Subject
+{
+    public Option<Age> Age { get; set; }
 }

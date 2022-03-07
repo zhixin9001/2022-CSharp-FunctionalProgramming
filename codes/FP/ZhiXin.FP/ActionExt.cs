@@ -1,5 +1,5 @@
 ﻿using static LaYumba.Functional.F;
-namespace FP.ZhiXin.FP;
+namespace LaYumba.Functional;
 
 using Unit = System.ValueTuple;
 
