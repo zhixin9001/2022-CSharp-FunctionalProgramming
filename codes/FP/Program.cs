@@ -9,4 +9,5 @@ using FP._2.fp_pattern;
 // PatternTest.Entry();
 // BindTest.Entry();
 // CompositeTest.Entry();
-EitherTest.Entry();
+// EitherTest.Entry();
+ApplyTest.Entry();
